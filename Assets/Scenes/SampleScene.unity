@@ -447,8 +447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bc9cd539c8f4fe99177f8bd46896090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _addItemButton: {fileID: 0}
-  _item: {fileID: 0}
   _slotsParentObject: {fileID: 1761568528}
   _slots: []
 --- !u!224 &130128470 stripped
@@ -2373,6 +2371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _addItemButton: {fileID: 1755111308}
   _inventory: {fileID: 98314269}
+  _items:
+  - {fileID: 202634563557451544, guid: 85549e084286a9f43b5fedc4283f2458, type: 3}
 --- !u!1001 &880557370
 PrefabInstance:
   m_ObjectHideFlags: 0
