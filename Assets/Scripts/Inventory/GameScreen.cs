@@ -16,6 +16,9 @@ public class GameScreen : MonoBehaviour
     {
         Item item = _items[Random.Range(0, _items.Length)];
         _addItemButton.onClick.AddListener(() =>
-            _inventory.AddItem(item.ItemParameters, item.Amount));
+        {
+            _inventory.AddItem(item.ItemParameters, item.Amount);
+            item = _items[Random.Range(0, _items.Length)];
+        });
     }
 }

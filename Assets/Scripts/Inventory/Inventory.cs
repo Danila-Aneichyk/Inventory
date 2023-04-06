@@ -28,21 +28,30 @@ public class Inventory : MonoBehaviour
         {
             if (slot.ItemParameters == itemParameters)
             {
-                slot.Amount += amount;
-                slot._textAmount.text = slot.Amount.ToString();
-                Debug.Log("Item added in stack ");
-                return;
+                if (slot.Amount + amount <= itemParameters._maximumAmount)
+                {
+                    slot.Amount += amount;
+                    slot._textAmount.text = slot.Amount.ToString();
+                    Debug.Log("Item added in stack ");
+                }
+
+                break;
             }
-            else if (slot.IsEmpty)
+            
+        }
+        
+        foreach (Slot slot in _slots)
+        {
+            if (slot.IsEmpty)
             {
                 slot.ItemParameters = itemParameters;
                 slot.Amount = amount;
                 slot.IsEmpty = false;
-                slot.SetIcon(itemParameters.Icon);  
+                slot.SetIcon(itemParameters.Icon);
                 slot._textAmount.text = amount.ToString();
                 Debug.Log("Item added in empty slot");
                 break;
-            }
+            }    
         }
     }
 }
