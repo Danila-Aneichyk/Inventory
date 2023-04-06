@@ -1,12 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class Item : ScriptableObject
+public class Item : MonoBehaviour
 {
-    [SerializeField] private string _itemName;
-    [SerializeField] private int _maximumAmount;
-    [SerializeField] private float _weight;
-    [SerializeField] private Image _icon;
-    [SerializeField] private ItemType _itemType;
-
+        public ItemParameters ItemParameters;
+        public int Amount; 
 }
