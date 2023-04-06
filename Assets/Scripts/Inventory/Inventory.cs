@@ -29,15 +29,19 @@ public class Inventory : MonoBehaviour
             if (slot.ItemParameters == itemParameters)
             {
                 slot.Amount += amount;
+                slot._textAmount.text = slot.Amount.ToString();
                 Debug.Log("Item added in stack ");
                 return;
             }
-            else if (slot.IsEmpty == false)
+            else if (slot.IsEmpty)
             {
                 slot.ItemParameters = itemParameters;
                 slot.Amount = amount;
-                slot.IsEmpty = true;
+                slot.IsEmpty = false;
+                slot.SetIcon(itemParameters.Icon);  
+                slot._textAmount.text = amount.ToString();
                 Debug.Log("Item added in empty slot");
+                break;
             }
         }
     }
