@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 98314269}
   m_Layer: 5
   m_Name: Inventory
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1855767609}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.0065977504
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1377,6 +1377,52 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 361488955728807756, guid: 7ce5db17a157d1645923da7ead68dc45, type: 3}
   m_PrefabInstance: {fileID: 1557246839}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &721173336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721173338}
+  - component: {fileID: 721173337}
+  m_Layer: 0
+  m_Name: Bullet01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &721173337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721173336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975883d699b447faac728e5cd54f9e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemParameters: {fileID: 11400000, guid: 155d5f8c0284d6240995f6b4a29196c5, type: 2}
+  Amount: 1
+--- !u!4 &721173338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721173336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1031.6962, y: 365.84042, z: -9.253967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &730215056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2375,6 +2421,7 @@ MonoBehaviour:
   _items:
   - {fileID: 1382402653}
   - {fileID: 1092282618}
+  - {fileID: 721173337}
 --- !u!1001 &880557370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4560,7 +4607,7 @@ GameObject:
   - component: {fileID: 1807133872}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4572,7 +4619,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807133870}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -8,7 +8,6 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        SetDefaultAmount();
         GetAllSlots();
     }
 
@@ -25,45 +24,54 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemParameters itemParameters, int amount)
     {
+        bool addedToStack = false;
         foreach (Slot slot in _slots)
         {
             if (slot.ItemParameters == itemParameters)
             {
-                if (slot.Amount + amount <= itemParameters._maximumAmount)
+                if (slot.Amount < itemParameters._maximumAmount)
                 {
-                    slot.Amount += amount;
+                    int amountToAdd = Mathf.Min(itemParameters._maximumAmount - slot.Amount, amount);
+                    slot.Amount += amountToAdd;
                     slot.TextAmount.text = slot.Amount.ToString();
-                    Debug.Log("Item added in stack ");
+                    Debug.Log("Added " + amountToAdd + " items to an existing stack");
+                    amount -= amountToAdd;
+                    addedToStack = true;
                 }
-
-                break;
             }
-        }
 
-        foreach (Slot slot in _slots)
-        {
-            if (slot.IsEmpty)
+
+            if (amount == 0)
             {
-                slot.ItemParameters = itemParameters;
-                slot.Amount = amount;
-                slot.IsEmpty = false;
-                slot.SetIcon(itemParameters.Icon);
-                if (slot.ItemParameters._maximumAmount != 1)
-                {
-                    slot.TextAmount.text = amount.ToString();
-                }
-
-                Debug.Log("Item added in empty slot");
                 break;
             }
         }
-    }
 
-    private void SetDefaultAmount()
-    {
-        foreach (Slot slot in _slots)
+        if (amount > 0 && !addedToStack)
         {
-            slot.TextAmount.text = "";
+            foreach (Slot slot in _slots)
+            {
+                if (slot.IsEmpty)
+                {
+                    slot.ItemParameters = itemParameters;
+                    int amountToAdd = Mathf.Min(itemParameters._maximumAmount, amount);
+                    slot.Amount = amountToAdd;
+                    slot.IsEmpty = false;
+                    slot.SetIcon(itemParameters.Icon);
+                    if (slot.ItemParameters._maximumAmount != 1)
+                    {
+                        slot.TextAmount.text = amountToAdd.ToString();
+                    }
+
+                    Debug.Log("Added " + amountToAdd + " items to an empty slot");
+                    amount -= amountToAdd;
+                }
+
+                if (amount == 0)
+                {
+                    break;
+                }
+            }
         }
     }
 }

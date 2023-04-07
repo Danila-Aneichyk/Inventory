@@ -50,6 +50,10 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         {
             return;
         }
+        if (eventData.pointerCurrentRaycast.gameObject.transform.parent.parent == null)
+        {
+            return;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
