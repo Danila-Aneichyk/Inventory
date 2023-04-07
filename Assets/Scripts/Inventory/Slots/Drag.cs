@@ -69,7 +69,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         ItemParameters item = newSlot.ItemParameters;
         int amount = newSlot.Amount;
         bool isEmpty = newSlot.IsEmpty;
-        GameObject icon = newSlot._icon;
+        GameObject icon = newSlot.Icon;
         TMP_Text textAmount = newSlot.TextAmount;
 
         // Заменяем значения newSlot на значения oldSlot
@@ -77,7 +77,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         newSlot.Amount = _oldSlot.Amount;
         if (_oldSlot.IsEmpty == false)
         {
-            newSlot.SetIcon(_oldSlot._icon.GetComponent<Image>().sprite);
+            newSlot.SetIcon(_oldSlot.Icon.GetComponent<Image>().sprite);
             if (_oldSlot.ItemParameters._maximumAmount != 1) // added this if statement for single items
             {
                 newSlot.TextAmount.text = _oldSlot.Amount.ToString();
@@ -89,8 +89,8 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         }
         else
         {
-            newSlot._icon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
-            newSlot._icon.GetComponent<Image>().sprite = null;
+            newSlot.Icon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            newSlot.Icon.GetComponent<Image>().sprite = null;
             newSlot.TextAmount.text = "";
         }
 
@@ -113,8 +113,8 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         }
         else
         {
-            _oldSlot._icon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
-            _oldSlot._icon.GetComponent<Image>().sprite = null;
+            _oldSlot.Icon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            _oldSlot.Icon.GetComponent<Image>().sprite = null;
             _oldSlot.TextAmount.text = "";
         }
 

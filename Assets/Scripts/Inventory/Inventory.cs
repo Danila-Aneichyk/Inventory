@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private Transform _slotsParentObject;
-    [SerializeField] private List<Slot> _slots = new List<Slot>();
+    public List<Slot> _slots = new List<Slot>();
 
-    private void Start()
+    private void Awake()
     {
         GetAllSlots();
     }
@@ -62,8 +64,7 @@ public class Inventory : MonoBehaviour
                     {
                         slot.TextAmount.text = amountToAdd.ToString();
                     }
-
-                    Debug.Log("Added " + amountToAdd + " items to an empty slot");
+                    
                     amount -= amountToAdd;
                 }
 
@@ -73,5 +74,20 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void DeleteItems(Slot itemInSlotToDestroy)
+    {
+        
+        itemInSlotToDestroy.IsEmpty = true;
+        itemInSlotToDestroy.ItemParameters = null;
+        itemInSlotToDestroy.Amount = 0;
+
+        if (itemInSlotToDestroy != null)
+        {
+            itemInSlotToDestroy.Icon.GetComponent<Image>().sprite = null;
+            itemInSlotToDestroy.TextAmount.text = "";
+        }
+
     }
 }
