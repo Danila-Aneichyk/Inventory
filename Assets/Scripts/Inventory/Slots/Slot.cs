@@ -7,13 +7,13 @@ public class Slot : MonoBehaviour
         public ItemParameters ItemParameters;
         public int Amount;
         public bool IsEmpty;
-        public TMP_Text _textAmount; 
+        public TMP_Text TextAmount; 
         public GameObject _icon;
 
         private void Awake()
         {
                 _icon = transform.GetChild(0).GetChild(0).gameObject;
-                _textAmount = transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
+                TextAmount = transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
         }
 
         public void SetIcon(Sprite icon)

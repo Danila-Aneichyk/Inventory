@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        SetDefaultAmount();
         GetAllSlots();
     }
 
@@ -31,15 +32,14 @@ public class Inventory : MonoBehaviour
                 if (slot.Amount + amount <= itemParameters._maximumAmount)
                 {
                     slot.Amount += amount;
-                    slot._textAmount.text = slot.Amount.ToString();
+                    slot.TextAmount.text = slot.Amount.ToString();
                     Debug.Log("Item added in stack ");
                 }
 
                 break;
             }
-            
         }
-        
+
         foreach (Slot slot in _slots)
         {
             if (slot.IsEmpty)
@@ -48,10 +48,22 @@ public class Inventory : MonoBehaviour
                 slot.Amount = amount;
                 slot.IsEmpty = false;
                 slot.SetIcon(itemParameters.Icon);
-                slot._textAmount.text = amount.ToString();
+                if (slot.ItemParameters._maximumAmount != 1)
+                {
+                    slot.TextAmount.text = amount.ToString();
+                }
+
                 Debug.Log("Item added in empty slot");
                 break;
-            }    
+            }
+        }
+    }
+
+    private void SetDefaultAmount()
+    {
+        foreach (Slot slot in _slots)
+        {
+            slot.TextAmount.text = "";
         }
     }
 }

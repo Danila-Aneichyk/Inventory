@@ -169,7 +169,7 @@ MonoBehaviour:
   ItemParameters: {fileID: 0}
   Amount: 0
   IsEmpty: 1
-  _textAmount: {fileID: 5769989398240202519}
+  TextAmount: {fileID: 0}
   _icon: {fileID: 1083607450}
 --- !u!1 &3950347654855394979
 GameObject:
@@ -243,7 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea34613029074f2abaa534c4bf1e64cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _oldSlot: {fileID: 0}
 --- !u!1 &6044990274351374870
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
-     private Slot _oldSlot;
+    private Slot _oldSlot;
 
     //private ScrollRect _scrollRect;
 
@@ -45,6 +45,11 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
             //Перемещаем данные из одного слота в другой
             ExchangeSlotData(eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.GetComponent<Slot>());
         }
+
+        if (eventData.pointerCurrentRaycast.gameObject.name == "Inventory") 
+        {
+            return;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -61,7 +66,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         int amount = newSlot.Amount;
         bool isEmpty = newSlot.IsEmpty;
         GameObject icon = newSlot._icon;
-        TMP_Text itemAmountText = newSlot._textAmount;
+        TMP_Text textAmount = newSlot.TextAmount;
 
         // Заменяем значения newSlot на значения oldSlot
         newSlot.ItemParameters = _oldSlot.ItemParameters;
@@ -69,13 +74,20 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         if (_oldSlot.IsEmpty == false)
         {
             newSlot.SetIcon(_oldSlot._icon.GetComponent<Image>().sprite);
-            newSlot._textAmount.text = _oldSlot.Amount.ToString();
+            if (_oldSlot.ItemParameters._maximumAmount != 1) // added this if statement for single items
+            {
+                newSlot.TextAmount.text = _oldSlot.Amount.ToString();
+            }
+            else
+            {
+                newSlot.TextAmount.text = "";
+            }
         }
         else
         {
             newSlot._icon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             newSlot._icon.GetComponent<Image>().sprite = null;
-            newSlot._textAmount.text = "";
+            newSlot.TextAmount.text = "";
         }
 
         newSlot.IsEmpty = _oldSlot.IsEmpty;
@@ -85,14 +97,21 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         _oldSlot.Amount = amount;
         if (isEmpty == false)
         {
-            _oldSlot.SetIcon(_oldSlot._icon.GetComponent<Image>().sprite);
-            _oldSlot._textAmount.text = amount.ToString();
+            _oldSlot.SetIcon(item.Icon);
+            if (item._maximumAmount != 1) // added this if statement for single items
+            {
+                _oldSlot.TextAmount.text = amount.ToString();
+            }
+            else
+            {
+                _oldSlot.TextAmount.text = "";
+            }
         }
         else
         {
             _oldSlot._icon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             _oldSlot._icon.GetComponent<Image>().sprite = null;
-            _oldSlot._textAmount.text = "";
+            _oldSlot.TextAmount.text = "";
         }
 
         _oldSlot.IsEmpty = isEmpty;
