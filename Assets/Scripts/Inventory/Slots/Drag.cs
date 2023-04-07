@@ -8,17 +8,16 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
 {
      private Slot _oldSlot;
 
-    private ScrollRect _scrollRect;
+    //private ScrollRect _scrollRect;
 
     private void Awake()
     {
-        _scrollRect = FindObjectOfType<ScrollRect>();
+        //_scrollRect = FindObjectOfType<ScrollRect>();
         _oldSlot = transform.GetComponentInParent<Slot>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _scrollRect.enabled = false;  // Отключаем прокрутку ScrollView
         if (_oldSlot.IsEmpty)
             return;
 
@@ -29,7 +28,6 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        _scrollRect.enabled = true;  // Включаем прокрутку ScrollView
         if (_oldSlot.IsEmpty)
             return;
 
