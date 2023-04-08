@@ -92,4 +92,18 @@ public class Inventory : MonoBehaviour
         }
 
     }
+
+    public void AddAmmo()
+    {
+        foreach (Slot  slot in _slots)
+        {
+            if (slot.ItemType == ItemType.Ammo && slot.Amount != slot.ItemParameters._maximumAmount)
+            {
+                int amountToAdd = slot.ItemParameters._maximumAmount - slot.Amount;
+                slot.Amount += amountToAdd; 
+                slot.TextAmount.text = slot.Amount.ToString();
+                break;
+            }
+        }
+    }
 }

@@ -5,6 +5,7 @@ public class GameScreen : MonoBehaviour
 {
     [SerializeField] private Button _addItemButton;
     [SerializeField] private Button _deleteItemButton;
+    [SerializeField] private Button _addAmmoButton;
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Item[] _items;
 
@@ -12,6 +13,7 @@ public class GameScreen : MonoBehaviour
     {
         AddRandomItem();
         _deleteItemButton.onClick.AddListener(DeleteRandomItemInSlot);
+        _addAmmoButton.onClick.AddListener(_inventory.AddAmmo);
     }
 
     private void AddRandomItem()
@@ -40,14 +42,6 @@ public class GameScreen : MonoBehaviour
         if (_inventory._slots.Count > 0)
         {
             _inventory.DeleteItems(slot);
-        }
-    }
-
-    private void AddAmmo()
-    {
-        foreach (Item item in _items)
-        {
-            
         }
     }
 }
