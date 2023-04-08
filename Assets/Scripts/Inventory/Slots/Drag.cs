@@ -123,7 +123,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
         if (_oldSlot.IsEmpty == false)
         {
             newSlot.SetIcon(_oldSlot.Icon.GetComponent<Image>().sprite);
-            if (_oldSlot.ItemParameters._maximumAmount != 1) // added this if statement for single items
+            if (_oldSlot.ItemParameters._maximumAmount != 1)
             {
                 newSlot.TextAmount.text = _oldSlot.Amount.ToString();
             }
