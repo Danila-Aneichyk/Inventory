@@ -142,6 +142,7 @@ public class Inventory : MonoBehaviour
 
         if (AmmoSlots.Count == 0)
         {
+            
             Debug.Log("No ammo in inventory");
             return;
         }
@@ -153,7 +154,11 @@ public class Inventory : MonoBehaviour
         {
             ClearSlotData(randomAmmoSlot);
         }
-
+        
         randomAmmoSlot.TextAmount.text = randomAmmoSlot.Amount.ToString();
+        if (randomAmmoSlot.Amount < 1)
+        {
+            randomAmmoSlot.TextAmount.text = "";
+        }
     }
 }
