@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb9c71bd9eb4bb1ab659613c645bec8, type: 3}
-  m_Name: Torso
+  m_Script: {fileID: 11500000, guid: c895f13dfa6b4114bf7eb4e2d785307d, type: 3}
+  m_Name: Hat
   m_EditorClassIdentifier: 
-  ItemType: 4
-  Icon: {fileID: 21300000, guid: b2407959c8a9ac340b5e56796e81a07e, type: 3}
+  ItemType: 5
+  Icon: {fileID: 21300000, guid: 33d59b71fa73ba34c831f223c0fcf28c, type: 3}
   _maximumAmount: 1
-  _itemName: Bulletproof Vest
-  _weight: 1.5
-  _protection: 15
+  _itemName: Cap
+  _weight: 0.1
+  _protection: 3

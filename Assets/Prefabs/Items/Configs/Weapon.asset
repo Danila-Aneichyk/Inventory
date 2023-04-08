@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74277c6858f04e868491c1dc81d41d11, type: 3}
   m_Name: Weapon
   m_EditorClassIdentifier: 
-  ItemType: 1
-  Icon: {fileID: 21300000, guid: ad8408b8c90d2fa4fa93fd2598cfeedc, type: 3}
+  ItemType: 2
+  Icon: {fileID: 21300000, guid: c6f37be97364b1b4db4845e5f024e869, type: 3}
   _maximumAmount: 1
-  _itemName: Pistol
-  _weight: 1
-  _damage: 10
-  _projectileType: 0
+  _itemName: TommyGun
+  _weight: 5
+  _damage: 20
+  _projectileType: 1
