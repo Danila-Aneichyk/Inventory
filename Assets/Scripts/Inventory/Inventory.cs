@@ -99,7 +99,7 @@ public class Inventory : MonoBehaviour
         ClearSlotData(randomSlot);
     }
 
-    private void ClearSlotData(Slot slot)
+    public void ClearSlotData(Slot slot)
     {
         slot.IsEmpty = true;
         slot.ItemParameters = null;
