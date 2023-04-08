@@ -450,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slotsParentObject: {fileID: 1761568528}
   _slots: []
+  _ammoSlots: []
 --- !u!224 &130128470 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 361488955728807756, guid: 7ce5db17a157d1645923da7ead68dc45, type: 3}
@@ -1331,7 +1332,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1855767609}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0
+  m_Size: 0.24430738
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2421,6 +2422,7 @@ MonoBehaviour:
   _addItemButton: {fileID: 1755111308}
   _deleteItemButton: {fileID: 800334409}
   _addAmmoButton: {fileID: 310661075}
+  _shootAmmoButton: {fileID: 2141512270}
   _inventory: {fileID: 98314269}
   _items:
   - {fileID: 1382402653}
