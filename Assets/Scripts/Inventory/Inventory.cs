@@ -33,6 +33,7 @@ public class Inventory : MonoBehaviour
             {
                 if (slot.Amount < itemParameters._maximumAmount)
                 {
+                    slot.ItemType = itemParameters.ItemType;
                     int amountToAdd = Mathf.Min(itemParameters._maximumAmount - slot.Amount, amount);
                     slot.Amount += amountToAdd;
                     slot.TextAmount.text = slot.Amount.ToString();
@@ -56,6 +57,7 @@ public class Inventory : MonoBehaviour
                 if (slot.IsEmpty)
                 {
                     slot.ItemParameters = itemParameters;
+                    slot.ItemType = itemParameters.ItemType;
                     int amountToAdd = Mathf.Min(itemParameters._maximumAmount, amount);
                     slot.Amount = amountToAdd;
                     slot.IsEmpty = false;

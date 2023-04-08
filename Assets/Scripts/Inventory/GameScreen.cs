@@ -42,4 +42,12 @@ public class GameScreen : MonoBehaviour
             _inventory.DeleteItems(slot);
         }
     }
+
+    private void AddAmmo()
+    {
+        foreach (Item item in _items)
+        {
+            
+        }
+    }
 }

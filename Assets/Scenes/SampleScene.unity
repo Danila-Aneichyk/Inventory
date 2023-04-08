@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 310661076}
   - component: {fileID: 310661075}
   m_Layer: 5
-  m_Name: AddBulletsButton
+  m_Name: AddAmmoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,7 +854,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Add bullets
+  m_text: 'Add ammo
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1329,7 +1331,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1855767609}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0
+  m_Size: 0.24430738
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2417,6 +2419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _addItemButton: {fileID: 1755111308}
+  _deleteItemButton: {fileID: 800334409}
   _inventory: {fileID: 98314269}
   _items:
   - {fileID: 1382402653}
@@ -4153,7 +4156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -4.6348877, y: -5}
+  m_AnchoredPosition: {x: -4.6347656, y: -5}
   m_SizeDelta: {x: 102.9416, y: 490}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1708485057

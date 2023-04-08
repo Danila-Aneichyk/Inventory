@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Slot : MonoBehaviour
 {
         public ItemParameters ItemParameters;
+        public ItemType ItemType;
         public int Amount;
         public bool IsEmpty;
         public TMP_Text TextAmount; 
