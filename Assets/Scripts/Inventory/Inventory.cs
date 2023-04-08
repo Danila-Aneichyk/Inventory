@@ -131,18 +131,29 @@ public class Inventory : MonoBehaviour
 
     public void ShootAmmo()
     {
+        List<Slot> AmmoSlots = new List<Slot>();
         foreach (Slot slot in _slots)
         {
             if (slot.ItemType == ItemType.Ammo.ToString())
             {
-                slot.Amount--;
-                slot.TextAmount.text = slot.Amount.ToString();
-
-                if (slot.Amount == 0)
-                {
-                    ClearSlotData(slot);
-                }
+                AmmoSlots.Add(slot);
             }
         }
+
+        if (AmmoSlots.Count == 0)
+        {
+            Debug.Log("No ammo in inventory");
+            return;
+        }
+
+        Slot randomAmmoSlot = AmmoSlots[Random.Range(0, AmmoSlots.Count)];
+        randomAmmoSlot.Amount--;
+
+        if (randomAmmoSlot.Amount == 0)
+        {
+            ClearSlotData(randomAmmoSlot);
+        }
+
+        randomAmmoSlot.TextAmount.text = randomAmmoSlot.Amount.ToString();
     }
 }
