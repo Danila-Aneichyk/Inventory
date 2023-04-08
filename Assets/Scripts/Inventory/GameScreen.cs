@@ -6,6 +6,7 @@ public class GameScreen : MonoBehaviour
     [SerializeField] private Button _addItemButton;
     [SerializeField] private Button _deleteItemButton;
     [SerializeField] private Button _addAmmoButton;
+    [SerializeField] private Button _shootAmmoButton;
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Item[] _items;
 
@@ -14,6 +15,7 @@ public class GameScreen : MonoBehaviour
         AddRandomItem();
         _deleteItemButton.onClick.AddListener(DeleteRandomItemInSlot);
         _addAmmoButton.onClick.AddListener(_inventory.AddAmmo);
+        _shootAmmoButton.onClick.AddListener(_inventory.ShootAmmo);
     }
 
     private void AddRandomItem()

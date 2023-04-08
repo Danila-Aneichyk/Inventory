@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -66,7 +65,7 @@ public class Inventory : MonoBehaviour
                     {
                         slot.TextAmount.text = amountToAdd.ToString();
                     }
-                    
+
                     amount -= amountToAdd;
                 }
 
@@ -80,28 +79,47 @@ public class Inventory : MonoBehaviour
 
     public void DeleteItems(Slot itemInSlotToDestroy)
     {
-        
         itemInSlotToDestroy.IsEmpty = true;
         itemInSlotToDestroy.ItemParameters = null;
         itemInSlotToDestroy.Amount = 0;
-
         if (itemInSlotToDestroy != null)
         {
             itemInSlotToDestroy.Icon.GetComponent<Image>().sprite = null;
             itemInSlotToDestroy.TextAmount.text = "";
         }
-
     }
 
     public void AddAmmo()
     {
-        foreach (Slot  slot in _slots)
+        foreach (Slot slot in _slots)
         {
-            if (slot.ItemType == ItemType.Ammo && slot.Amount != slot.ItemParameters._maximumAmount)
+            if (slot.ItemParameters != null)
             {
-                int amountToAdd = slot.ItemParameters._maximumAmount - slot.Amount;
-                slot.Amount += amountToAdd; 
+                if (slot.ItemType == ItemType.Ammo && slot.Amount != slot.ItemParameters._maximumAmount)
+                {
+                    int amountToAdd = slot.ItemParameters._maximumAmount - slot.Amount;
+                    slot.Amount += amountToAdd;
+                    slot.TextAmount.text = slot.Amount.ToString();
+                    break;
+                }
+            }
+        }
+    }
+    
+    public void ShootAmmo()
+    {
+        foreach (Slot slot in _slots)
+        {
+            if (slot.ItemType == ItemType.Ammo && slot.Amount > 0)
+            {
+                slot.Amount--;
                 slot.TextAmount.text = slot.Amount.ToString();
+
+                if (slot.Amount == 0)
+                {
+                    DeleteItems(slot);
+                }
+
                 break;
             }
         }
