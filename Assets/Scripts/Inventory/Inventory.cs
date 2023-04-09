@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +19,32 @@ public class Inventory : MonoBehaviour
             if (_slotsParentObject.GetChild(i).GetComponent<Slot>() != null)
             {
                 _slots.Add(_slotsParentObject.GetChild(i).GetComponent<Slot>());
+            }
+        }
+    }
+
+    public void LoadItemToSlot(ItemParameters itemParameters, int amount, int slotId)
+    {
+        Slot slot = _slots[slotId];
+        slot.ItemParameters = itemParameters;
+        slot.IsEmpty = false;
+        slot.SetIcon(itemParameters.Icon);
+
+        if (amount <= itemParameters._maximumAmount)
+        {
+            slot.Amount = amount;
+            if (slot.ItemParameters._maximumAmount != 1)
+            {
+                slot.TextAmount.text = slot.Amount.ToString();
+            }
+            else
+            {
+                slot.Amount = itemParameters._maximumAmount;
+                amount = itemParameters._maximumAmount;
+                if (slot.ItemParameters._maximumAmount != 1)
+                {
+                    slot.TextAmount.text = slot.Amount.ToString();
+                }
             }
         }
     }
@@ -142,7 +167,6 @@ public class Inventory : MonoBehaviour
 
         if (AmmoSlots.Count == 0)
         {
-            
             Debug.Log("No ammo in inventory");
             return;
         }
@@ -154,7 +178,7 @@ public class Inventory : MonoBehaviour
         {
             ClearSlotData(randomAmmoSlot);
         }
-        
+
         randomAmmoSlot.TextAmount.text = randomAmmoSlot.Amount.ToString();
         if (randomAmmoSlot.Amount < 1)
         {

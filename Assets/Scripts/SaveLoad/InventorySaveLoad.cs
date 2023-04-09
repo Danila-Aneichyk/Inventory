@@ -20,7 +20,7 @@ public class InventorySaveLoad : MonoBehaviour
                 _inventory.ClearSlotData(_inventory._slots[i]);
                 ItemParameters item = Resources.Load<ItemParameters>($"Configs/{data.itemNames[i]}");
                 int itemAmount = data.itemAmounts[i];
-                _inventory.AddItem(item,itemAmount);
+                _inventory.LoadItemToSlot(item,itemAmount, i);
             }
             else
             {
