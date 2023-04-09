@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour
     {
         Slot slot = _slots[slotId];
         slot.ItemParameters = itemParameters;
+        slot.ItemType = itemParameters.ItemType.ToString();
         slot.IsEmpty = false;
         slot.SetIcon(itemParameters.Icon);
 
@@ -156,22 +157,22 @@ public class Inventory : MonoBehaviour
 
     public void ShootAmmo()
     {
-        List<Slot> AmmoSlots = new List<Slot>();
+        List<Slot> ammoSlots = new List<Slot>();
         foreach (Slot slot in _slots)
         {
             if (slot.ItemType == ItemType.Ammo.ToString())
             {
-                AmmoSlots.Add(slot);
+                ammoSlots.Add(slot);
             }
         }
 
-        if (AmmoSlots.Count == 0)
+        if (ammoSlots.Count == 0)
         {
             Debug.Log("No ammo in inventory");
             return;
         }
 
-        Slot randomAmmoSlot = AmmoSlots[Random.Range(0, AmmoSlots.Count)];
+        Slot randomAmmoSlot = ammoSlots[Random.Range(0, ammoSlots.Count)];
         randomAmmoSlot.Amount--;
 
         if (randomAmmoSlot.Amount == 0)

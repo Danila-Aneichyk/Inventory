@@ -15,6 +15,6 @@ MonoBehaviour:
   ItemType: 0
   Icon: {fileID: 21300000, guid: 8773e66e91dc369419bebb47a568515d, type: 3}
   _maximumAmount: 15
-  _itemName: Bullet02
+  _itemName: Bullet
   _weight: 0.1
   _projectileType: 1

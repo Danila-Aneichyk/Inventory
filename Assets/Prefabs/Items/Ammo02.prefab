@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemParameters: {fileID: 11400000, guid: d74904781520d88428829f5aadadfd62, type: 2}
-  Amount: 15
+  Amount: 1
