@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8124711164726999020}
   - component: {fileID: 3757941427134042831}
   - component: {fileID: 4437374540376155243}
+  - component: {fileID: 4013515949694622962}
   m_Layer: 5
   m_Name: LockedSlot
   m_TagString: LockedSlot
@@ -76,3 +77,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4013515949694622962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4408670462620525240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30240a2dc2514ad4b594ddbf1d2f0570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _costToUnlock: 150

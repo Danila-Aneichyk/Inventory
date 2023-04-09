@@ -63,7 +63,6 @@ public class Inventory : MonoBehaviour
                     int amountToAdd = Mathf.Min(itemParameters._maximumAmount - slot.Amount, amount);
                     slot.Amount += amountToAdd;
                     slot.TextAmount.text = slot.Amount.ToString();
-                    Debug.Log("Added " + amountToAdd + " items to an existing stack");
                     amount -= amountToAdd;
                     addedToStack = true;
                 }
@@ -168,7 +167,6 @@ public class Inventory : MonoBehaviour
 
         if (ammoSlots.Count == 0)
         {
-            Debug.Log("No ammo in inventory");
             return;
         }
 

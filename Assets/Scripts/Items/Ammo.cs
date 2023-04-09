@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Ammo", menuName = "Inventory/Items/Projectile")]
+[CreateAssetMenu(fileName = "Ammo", menuName = "Inventory/Items/Ammo")]
 public class Ammo : ItemParameters
 {
-    [SerializeField] private ProjectileType _projectileType;
+    [SerializeField] private AmmoType _ammoType;
 }

@@ -4,6 +4,6 @@
 public class Weapon : ItemParameters
 {
         [SerializeField] private float _damage;
-        [SerializeField] private ProjectileType _projectileType;
+        [SerializeField] private AmmoType ammoType;
 
 }
